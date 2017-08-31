@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private Double ValorA;
-    private Double ValorB;
     public double subTotal;
     private MyListener listener;
     private TextView txtSubTotal;
@@ -18,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtOperador;
     private String operacion;
     private boolean esSubTotal;
-    private boolean esValorA;
+
 
 
 
@@ -47,14 +45,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void limpiar(){
         this.operacion="";
-        this.ValorA =0.0;
-        this.ValorB =0.0;
         this.subTotal = 0;
         this.txtNumero.setText("0");
         this.txtSubTotal.setText("");
         this.txtOperador.setText("");
         this.esSubTotal=true;
-        this.esValorA=true;
     }
     public void agregarNumero(String texto){
         if (!this.esSubTotal) {
@@ -101,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         this.txtNumero.setText(calcular(Double.valueOf(this.txtSubTotal.getText().toString()),Double.valueOf(this.txtNumero.getText().toString()),this.txtOperador.getText().toString()));
        this.txtSubTotal.setText("");
         this.txtOperador.setText("");
+        this.esSubTotal=true;
     }
     //Funciones matematicas
     private String sumar(Double a, Double b){
